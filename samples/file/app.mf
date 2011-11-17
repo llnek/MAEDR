@@ -1,0 +1,21 @@
+{
+    devices: {
+        t1: { type:"oneshot-timer", processor:"demo.file.FileGen${PIPELINE}${PREAMBLE}"}, 
+        genfile : {
+            type: "repeat-timer",
+            intervalsecs: 5,
+            delaysecs: 1,
+            processor: "demo.file.FileGen${PIPELINE}"
+        },
+        picker :    {
+            rootdir: "$FILEPICK_SRC",
+            destdir: "$FILEPICK_DES",
+            fmask: ".*.txt",
+            automove: true,
+            intervalsecs: 8,
+            delaysecs: 3,            
+            type: "filepicker",
+            processor: "demo.file.FilePick${PIPELINE}"
+        }
+   }
+}

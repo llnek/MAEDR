@@ -1,0 +1,18 @@
+#OFF, FATAL, ERROR, WARN, INFO, DEBUG, ALL
+#log4j.threshold=[level]
+#log4j.rootLogger=INFO, STDOUT, DISK
+log4j.rootLogger=INFO, DISK
+
+log4j.appender.STDOUT=org.apache.log4j.ConsoleAppender
+log4j.appender.STDOUT.layout=org.apache.log4j.PatternLayout
+log4j.appender.STDOUT.layout.ConversionPattern=[%d{ISO8601} (%-5p)] %x %m%n
+
+log4j.appender.DISK=org.apache.log4j.RollingFileAppender
+log4j.appender.DISK.File=${LOGS_DIR}/app.log
+log4j.appender.DISK.MaxBackupIndex=2
+log4j.appender.DISK.MaxFileSize=1MB
+log4j.appender.DISK.Append=true
+log4j.appender.DISK.layout=org.apache.log4j.PatternLayout
+log4j.appender.DISK.layout.ConversionPattern=[%d{ISO8601} (%-5p)] %x %m%n
+
+

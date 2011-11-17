@@ -1,0 +1,13 @@
+{ 
+    devices : { 
+        t1 : { type: "oneshot-timer", processor: "demo.jetty.JettyServer${PIPELINE}${PREAMBLE}" },
+        h1 : {   
+            processor: "demo.jetty.JettyServer${PIPELINE}",
+            type:"jetty", port:8080, 
+            contextpath: "/test",
+            resbase: "$RESBASE",
+            urlpatterns : ["/helloworld/*", "/bonjour/*"]
+        }   
+    }
+}
+

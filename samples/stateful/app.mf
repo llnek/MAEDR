@@ -1,0 +1,11 @@
+{ 
+    devices : { 
+        t1: { type: "oneshot-timer" , processor: "demo.stateful.LoginServer${PIPELINE}${PREAMBLE}" },
+        h1 : { 
+            type:"http", port:8080, 
+            processor: "demo.stateful.LoginServer${PIPELINE}"
+        }   
+    }
+}
+                    
+

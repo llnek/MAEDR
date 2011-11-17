@@ -1,0 +1,17 @@
+{
+    devices : {
+        t1 : { type: "oneshot-timer", processor: "demo.pop3.POP3Server${PIPELINE}${PREAMBLE}" } ,
+        d1 : {
+            provider: "com.zotoh.maedr.mock.mail.MockPop3Store",
+            type: "pop3",
+            host: "localhost",
+            port: 7110,
+            ssl: false,
+            user: "test1",
+            pwd: "secret",
+            intervalsecs: 5,
+            delaysecs: 3,
+            processor: "demo.pop3.POP3Server${PIPELINE}"
+        }
+    }
+}

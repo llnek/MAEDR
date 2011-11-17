@@ -1,0 +1,16 @@
+{     
+    devicehandlers : {
+        stockquote : "demo.stockquote.MyStockQuoteDevice"
+    },
+
+    devices : { 
+        t1 : { type: "oneshot-timer", processor: "demo.stockquote.QuoteServer${PIPELINE}${PREAMBLE}"},
+        q1 : {   
+            type:"stockquote", 
+            url:"http://finance.yahoo.com/d/quotes.csv?s=SYMBOL&f=sl1d1t1c1ohgv&e=.csv", 
+            symbols: [ "MSFT", "GOOG" ],
+            intervalsecs:5,
+            processor: "demo.stockquote.QuoteServer${PIPELINE}" }   
+    }    
+}
+

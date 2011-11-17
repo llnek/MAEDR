@@ -1,0 +1,10 @@
+{ 
+    devices : { 
+        t0 : { type: "oneshot-timer", processor: "demo.async.AsyncServer${PIPELINE}${PREAMBLE}"},
+        t1 : { type: "oneshot-timer" ,  delaysecs: 2  , 
+            processor: "demo.async.AsyncServer${PIPELINE}"   }   
+    }
+}
+    
+    
+

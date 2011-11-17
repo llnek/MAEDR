@@ -1,0 +1,30 @@
+{ 
+    devices : { 
+
+        t1 : {type: "oneshot-timer", processor: "demo.jms.JMSRecvr${PIPELINE}${PREAMBLE}" },
+        topic : {  
+            processor: "demo.jms.JMSRecvr${PIPELINE}",
+            type:"jms", 
+            contextfactory:"com.zotoh.maedr.mock.jms.MockContextFactory", 
+            providerurl:"java://aaa", 
+            connfactory:"tcf", 
+            destination:"topic.abc", 
+            jndiuser:"root", jndipwd:"root", 
+            jmsuser:"anonymous", jmspwd:"anonymous"
+        },
+
+        queue: {  
+            processor: "demo.jms.JMSRecvr${PIPELINE}",
+            type:"jms", 
+            contextfactory:"com.zotoh.maedr.mock.jms.MockContextFactory", 
+            providerurl:"java://aaa", 
+            connfactory:"qcf", 
+            destination:"queue.xyz", 
+            jndiuser:"root", jndipwd:"root", 
+            jmsuser:"anonymous", jmspwd:"anonymous"
+       }   
+  }
+
+}
+    
+

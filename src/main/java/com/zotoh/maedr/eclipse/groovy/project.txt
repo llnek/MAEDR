@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>${APP.NAME}</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.groovy.core.groovyNature</nature>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>groovy</name>
+			<type>2</type>
+			<location>${GROOVY.SRC}</location>
+		</link>
+		<link>
+			<name>test</name>
+			<type>2</type>
+			<location>${TEST.SRC}</location>
+		</link>
+	</linkedResources>
+</projectDescription>

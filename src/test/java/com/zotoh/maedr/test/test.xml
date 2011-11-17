@@ -1,0 +1,25 @@
+<maedr>
+
+    <devices>
+        
+        <device type="file-picker"
+            root-dir="w:/ec2/data/manifest" sub-dirs="amx|bpm" file-mask="*.json"
+            delay-secs="5" interval-secs="5" status="false"/>
+    
+        <device id="tm-scan-bundles" type="repeat-timer"  
+            delay-secs="5" interval-secs="300" status="false"/>
+            
+        <device id="http-simple" type="http"   host="lt-wow" port="8220" nio="false" status="true"/>
+        
+        <device id="http-ssl" type="https"   host="lt-wow" port="443" status="false"
+            ssl-serverkey-password="Password1" nio="true"
+            ssl-serverkey-url="file:///w:/zotoh.p12"/>
+            
+    </devices>
+    
+    <cores>
+        <core id="c1" threads="8"/>
+    </cores>
+
+
+</maedr>

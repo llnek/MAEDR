@@ -1,0 +1,10 @@
+{ 
+    devices : { 
+        t0: {type:"oneshot-timer", processor:"demo.fork.Parent${PIPELINE}${PREAMBLE}"},
+        t1 : { type: "oneshot-timer" ,  delaysecs: 2,
+            processor: "demo.fork.Parent${PIPELINE}"     }   
+    }
+}
+    
+    
+

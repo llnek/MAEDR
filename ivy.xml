@@ -1,0 +1,53 @@
+<ivy-module version="2.0">
+
+    <info organisation="com.zotoh" module="maedr"/>
+	
+    <configurations defaultconf="libjar">
+    	<conf name="libjar"  description="the core jar library"/>
+    	<conf name="thirdparty"  description="3rd party libs"/>
+    	<conf name="test" extends="libjar,thirdparty" visibility="private" description="internal testing"/>
+    </configurations>
+    <publications>
+    	<artifact name="maedr-distro" type="distro"  conf="libjar" ext="zip"/>
+    	<artifact name="maedr" type="jar"  conf="libjar" ext="jar"/>
+    </publications>
+
+    <dependencies>
+      	<dependency org="org.h2" name="h2" rev="1.3.161" conf="libjar->default"/>
+		<dependency org="javax" name="geronimo-jms_1.1_spec" rev="1.1.1" conf="thirdparty->default"/>
+		<dependency org="com.zotoh" name="fxcore" rev="1.0.0"  conf="libjar->libjar"/>
+		<dependency org="com.zotoh" name="fxcore" rev="1.0.0"  conf="thirdparty->thirdparty"/>
+		<dependency org="com.zotoh" name="dasein-aws" rev="1.0.0"  conf="libjar->libjar"/>
+		<dependency org="com.zotoh" name="dasein-aws" rev="1.0.0"  conf="thirdparty->thirdparty"/>
+		<dependency org="junit" name="junit" rev="4.8.2"  conf="thirdparty->default"/>
+		<dependency org="org.apache.ant" name="ant" rev="1.8.2"  conf="thirdparty->default"/>
+		<dependency org="org.apache.ant" name="ant-launcher" rev="1.8.2"  conf="thirdparty->default"/>
+		<dependency org="org.apache.ant" name="ant-junit4" rev="1.8.2"  conf="thirdparty->default"/>
+		<dependency org="org.apache.ant" name="ant-junit" rev="1.8.2"  conf="thirdparty->default"/>
+		<dependency org="org.codehaus.groovy" name="groovy-all" rev="1.8.4"  conf="thirdparty->default"/>
+		<dependency org="org.scala-lang" name="scala-library" rev="2.9.1"  conf="thirdparty->default"/>
+		<dependency org="org.scala-lang" name="scala-compiler" rev="2.9.1"  conf="thirdparty->default"/>
+		<dependency org="com.sun.tools" name="tools" rev="1.6.0"  conf="thirdparty->default"/>
+		<dependency org="org.eclipse.jetty" name="jetty-xml" rev="7.5.4.v20111024"  conf="thirdparty->default"/>
+		<dependency org="org.eclipse.jetty" name="jetty-server" rev="7.5.4.v20111024"  conf="thirdparty->default"/>
+		<dependency org="org.eclipse.jetty" name="jetty-continuation" rev="7.5.4.v20111024"  conf="thirdparty->default"/>
+		<dependency org="org.eclipse.jetty" name="jetty-websocket" rev="7.5.4.v20111024"  conf="thirdparty->default"/>
+		<dependency org="org.eclipse.jetty" name="jetty-servlet" rev="7.5.4.v20111024"  conf="thirdparty->default"/>
+		<dependency org="org.eclipse.jetty" name="jetty-server" rev="7.5.4.v20111024"  conf="thirdparty->default"/>
+		<dependency org="org.eclipse.jetty" name="jetty-util" rev="7.5.4.v20111024"  conf="thirdparty->default"/>
+		<dependency org="org.eclipse.jetty" name="jetty-security" rev="7.5.4.v20111024"  conf="thirdparty->default"/>
+		<dependency org="org.eclipse.jetty" name="jetty-webapp" rev="7.5.4.v20111024"  conf="thirdparty->default"/>
+		<dependency org="jdom" name="jdom" rev="1.1.1"  conf="thirdparty->default"/>
+		<dependency org="org.scalatest" name="scalatest" rev="1.6.1"  conf="thirdparty->default"/>
+		<dependency org="net.java.dev.rome" name="rome" rev="1.0.0"  conf="thirdparty->default"/>
+		<dependency org="ganymed" name="ganymed-ssh2" rev="build251beta1"  conf="thirdparty->default"/>
+        <!--
+		<dependency org="org.apache.wink" name="wink-server" rev="1.1.3-incubating"  conf="thirdparty->default"/>
+		<dependency org="org.apache.wink" name="wink-client" rev="1.1.3-incubating"  conf="thirdparty->default"/>
+		<dependency org="org.apache.abdera" name="abdera-client" rev="1.1.2"  conf="thirdparty->default"/>
+		<dependency org="org.jclouds" name="jclouds-allcompute" rev="1.0.0"  conf="thirdparty->default"/>
+		<dependency org="org.jclouds" name="jclouds-allblobstore" rev="1.0.0"  conf="thirdparty->default"/>
+        -->
+    </dependencies>
+
+</ivy-module>

@@ -1,0 +1,49 @@
+#!/bin/sh
+MAEDR_HOME=${MAEDR_HOME}
+TDIR=${TARGET_DIR}
+WMI=`whoami`
+
+PDIR=$TDIR/${TARGET_FILE_DIR}
+PKGFILE=${TARGET_FILE}
+
+#echo "I am $WMI"
+
+if [ ! -d $TDIR  ]; then
+    echo "not a directory - $TDIR"
+    exit
+fi
+
+if [ ! -w $TDIR  ]; then
+    echo "not writable - $TDIR"
+    exit
+fi
+
+if [ -e $PDIR ]; then
+    echo "$PDIR already exists"
+    exit
+fi
+
+echo "Making directory $PDIR"
+mkdir $PDIR
+cd $PDIR
+
+if [ ! -e $PKGFILE ]; then
+    echo "failed to read $PKGFILE"
+    exit
+fi
+
+${UNPACK_ACTION} $PKGFILE > /dev/null
+rm -f  $PKGFILE
+
+if [ ! -e cfg/app.properties ]; then
+    echo "failed to untar package or package is corrupt"
+    exit
+fi
+
+if [ ! "$MAEDR_HOME" = "" ]; then    
+    echo "$MAEDR_HOME/bin/maedr app start/bg"
+    $MAEDR_HOME/bin/maedr app start/bg
+fi
+
+echo "Deployed OK."
+

@@ -1,0 +1,13 @@
+{ 
+    devices : { 
+        t1 : { type: "oneshot-timer", processor: "demo.ssl.SSLServer${PIPELINE}${PREAMBLE}" },
+        s1 : {  
+            processor: "demo.ssl.SSLServer${PIPELINE}",
+            type:"https", port:8080,
+            serverkey:"$KEY.P12", 
+            serverkeypwd:"secret" 
+        }
+    }
+}
+    
+

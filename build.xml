@@ -1,0 +1,48 @@
+<project name="maedr" basedir="." default="release" xmlns:ivy="antlib:org.apache.ivy.ant">
+
+    <property name="PID"     value="${ant.project.name}"/>
+    <property name="PID-DISTRO"     value="${PID}-distro"/>
+    <property name="DEBUG"     value="true"/>
+	<property name="revision" value="1.0.0" />
+
+    <property name="src.excludes" value="com/zotoh/maedr/device/apache/**,com/zotoh/maedr/process/**,demo/*/groovy/**,demo/*/scala/**,demo/*/java/Process*.java,demo/*/java/*Processor.java"/>
+    <property name="test.excludes" value="com/zotoh/maedr/test/process/**"/>
+
+	<include file="${basedir}/../common.xml"/>
+
+    <target name="pack-source" depends="">
+		<copy todir="${pack.dir}/src/main/java">
+			<fileset dir="${src.dir}">
+                <exclude name="com/zotoh/maedr/process/**"/>
+                <exclude name="demo/**"/>
+			</fileset>
+		</copy>
+    </target>
+
+    <target name="pack-samples" depends="">
+       <copy todir="${pack.dir}/samples">
+           <fileset dir="${basedir}/samples"/>
+           <fileset dir="${src.dir}/demo">
+				<include name="**/*.groovy"/>
+				<include name="**/*.scala"/>
+				<include name="**/*.java"/>
+				<include name="**/*.xml"/>
+				<include name="**/*.properties"/>
+				<include name="**/*.sql"/>
+				<include name="**/*.txt"/>
+				<include name="**/*.bat"/>
+				<include name="**/*.sh"/>
+				<exclude name="**/*Processor.groovy"/>
+				<exclude name="**/*Processor.scala"/>
+				<exclude name="**/*Processor.java"/>
+				<exclude name="**/Proc*Delegate.groovy"/>
+				<exclude name="**/Proc*Delegate.scala"/>
+				<exclude name="**/Proc*Delegate.java"/>
+			</fileset>
+		</copy>
+    </target>
+
+	<target name="jar" depends="common.pub-jar"/>
+	<target name="release" depends="common.pub-distro"/>
+
+</project>

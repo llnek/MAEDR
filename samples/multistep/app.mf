@@ -1,0 +1,10 @@
+{ 
+    devices : { 
+        t1 : {type: "oneshot-timer", processor: "demo.multistep.MultiStep${PIPELINE}${PREAMBLE}" },
+        h1 : {   
+            type:"oneshot-timer", 
+            processor: "demo.multistep.MultiStep${PIPELINE}"
+        }   
+    }
+}
+

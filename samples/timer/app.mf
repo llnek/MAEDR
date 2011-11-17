@@ -1,0 +1,16 @@
+{ 
+    devices : { 
+
+        t0 : { type: "oneshot-timer", processor : "demo.timer.TimeServer${PIPELINE}${PREAMBLE}" },
+
+        t1 : { 
+            processor: "demo.timer.TimeServer${PIPELINE}",
+            type:"oneshot-timer",  delaysecs:2  
+        } , 
+        
+        t2 : { 
+            processor: "demo.timer.TimeServer${PIPELINE}",
+            type:"repeat-timer",  delaysecs:3, intervalsecs:2  
+        }  
+    }
+}

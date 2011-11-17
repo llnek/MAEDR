@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>maedr:WebSocket is Cool! Square an integer</title>
+<script type="text/javascript" charset="utf-8" src="jquery.js"></script>
+<script type="text/javascript">
+    var ws;
+    $(document).ready(function () {
+        ws = new WebSocket("ws://localhost:8080/squarenum");
+        ws.onopen = function(event) { $('#status').text("WebSocket: connected OK."); }
+        ws.onmessage = function(event) { $('#result').text("Result= " + event.data); }
+        ws.onclose = function(event) { $('#status').text("WebSocket: connection closed."); }
+    });
+    function send(){
+        var number = $('#number').val();
+        ws.send(number);
+    }
+</script>
+</head>
+<body>
+<h1>Check out jboss/netty or jetty web on websockets</h1>
+<h2>Using WebSocket to square an integer</h2>
+<div id="status"></div><br/>
+Enter The Integer To Square <input id="number" value="13"/><input type="button"
+value="Send Request..." onclick="send();" /><br/>
+<div id="result"></div><br/>
+</body>
+</html>
+

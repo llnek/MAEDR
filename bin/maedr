@@ -1,0 +1,63 @@
+#!/bin/bash
+MAEDR_LOCALE=en_US
+
+MAEDR_BIN=$(dirname $(readlink -f $0))/../
+MAEDR_HOME=$(readlink -f $MAEDR_BIN)
+
+DBGOPTS="-agentlib:jdwp=transport=dt_socket,server=y,address=8787,suspend=n"
+PIPELINE_OPT="-Dmaedr.pipeline=com.zotoh.maedr.wflow.FlowModule"
+PATCHDIR=$MAEDR_HOME/patch/*
+DISTRO=$MAEDR_HOME/dist/*
+TPCL=$MAEDR_HOME/thirdparty/*
+LIBDIR=$MAEDR_HOME/lib/*
+CP=$PATCHDIR:$CLASSPATH:$DISTRO:$LIBDIR:$TPCL
+JAVA_CMD=java
+BG=false
+CWD=`pwd`
+L4JFILE=${CWD}/cfg/log4j.properties
+L4J=file:${L4JFILE}
+LOGCFG=$L4J
+LOGREF="-Dlog4j.configuration=$LOGCFG"
+LOCALE="-Dmaedr.locale=$MAEDR_LOCALE"
+DBG=$CWD/lib/*:$CWD/thirdparty/*:$CWD/classes
+
+
+if [ "$JAVA_HOME" = "" ] ; then
+    echo "Attempt to reference standard java location on system: /usr/bin."
+    #echo "Please set JAVA_HOME"
+    #exit -1
+    JAVA_HOME=/usr
+fi
+
+if [ ! -e ${L4JFILE} ]; then
+    LOGREF=
+fi
+
+if [ $# -eq 3 ] ; then
+    if [ "$2" = "start" -a "$3" = "/background" ]; then
+       BG=true
+    fi
+fi
+
+if [ $# -eq 4 ] ; then
+    if [ "$2" = "invoke" -a "$4" = "/background" ]; then
+       BG=true
+    fi
+    if [ "$2" = "run" -a "$4" = "/background" ]; then
+       BG=true
+    fi
+fi
+
+if [ $# -eq 2 -a "$1" = "remote-debug" -a "$2" = "maedr-server" ]; then
+$JAVA_HOME/bin/$JAVA_CMD $DBGOPTS -cp $DBG:$CP $LOGREF $LOCALE $PIPELINE_OPT com.zotoh.maedr.etc.AntStart $@
+exit 0
+fi
+
+if [ "$BG" = "false" ]; then
+$JAVA_HOME/bin/$JAVA_CMD -cp $CP $LOGREF $LOCALE $PIPELINE_OPT com.zotoh.maedr.etc.AppRunner $MAEDR_HOME $@
+else
+$JAVA_HOME/bin/$JAVA_CMD -cp $CP $LOGREF $LOCALE $PIPELINE_OPT com.zotoh.maedr.etc.AppRunner $MAEDR_HOME $@ &
+fi
+exit 0
+
+

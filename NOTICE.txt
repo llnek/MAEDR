@@ -1,0 +1,68 @@
+------------------------------------------------------------------------------
+MAEDR - Server Side Java Application Framework.
+Copyright 2011 Cherimoia,LLC. All Rights Reserved.
+------------------------------------------------------------------------------
+The following set of software modules/components are included
+( bundled as binaries/source code):
+
+- H2 database engine - java database,
+  which is open source (Mozilla or EPL) software.
+  @see http://h2database.com
+  @see-license http://h2database.com/html/license.html
+
+- Zotoh's Daisen Cloud API for Amazon,
+  which is open source (Apache-license) software.
+  @see-also http://dasein-cloud.sourceforge.net
+  @see http://zotoh.com
+  @see-license http://www.apache.org/licenses/LICENSE-2.0
+
+- Apache Ant - (junit, tools & launcher),
+  which is open source (Apache-license) software.
+  @see http://ant.apache.org/
+  @see-license http://www.apache.org/licenses/LICENSE-2.0
+
+- Groovy - (embeddable jar),
+  which is open source (Apache-license) software.
+  @see http://groovy.codehaus.org/
+  @see-license http://groovy.codehaus.org/License+Information
+  @see-license http://www.apache.org/licenses/LICENSE-2.0
+
+- Scala - (compiler & lang jars), which is open source software.
+  @see http://www.scala-lang.org/
+  @see-license http://www.scala-lang.org/node/146
+
+- Jetty Web Container - jar files, 
+  which is open source (Apache or EPL) software.
+  @see http://www.eclipse.org/jetty/
+  @see-license http://www.eclipse.org/jetty/licenses.php
+
+- jDOM.  Please see accompanied license file, which is located in the 
+  /lics folder of the distribution bundle.
+  @see http://jdom.org/index.html
+  @see-license jDOM.LICENSE.txt
+ 
+- ScalaTest - unit testing, 
+  which is open source (Apache License) software.
+  @see http://scalatest.org/
+  @see-license http://www.apache.org/licenses/LICENSE-2.0
+
+- Rome Atom/RSS java utilites,
+  which is open source (Apache License) software.
+  @see http://java.net/projects/rome/
+  @see-license http://www.apache.org/licenses/LICENSE-2.0
+
+- Ganymed SSH-2 for Java, which is open source (BSD) software.
+  Please see accompanied license file, which is located in the /lics folder 
+  of the distribution bundle.
+  @see http://www.cleondris.ch/opensource/ssh2/
+  @see-license GanyMed-SSH2.LICENSE.txt
+
+- SUN JDK 1.6 (tools.jar) is included for compiling java source code.
+  @see http://www.oracle.com/technetwork/java/javase/downloads/index.html
+
+
+
+
+
+
+

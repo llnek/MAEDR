@@ -1,0 +1,7 @@
+{     
+    devices : { 
+        t1 : {   type:"oneshot-timer", processor: "demo.http.HTTPServer${PIPELINE}${PREAMBLE}" }   ,
+        h1 : {   type:"http", port:8080, processor: "demo.http.HTTPServer${PIPELINE}" }   
+    }    
+}
+

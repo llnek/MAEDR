@@ -1,0 +1,15 @@
+{ 
+    devices : { 
+        t1 : { type: "oneshot-timer", processor: "demo.rest.ListAccts${PIPELINE}${PREAMBLE}" },
+        h1 : {   
+            type:"rest", port:8080, 
+            contextpath: "/storefront",
+            resources: [
+                { path: "/account/list", processor: "demo.rest.ListAccts${PIPELINE}" },
+                { path: "/account/[1-9][0-9]*", processor: "demo.rest.UserAcct${PIPELINE}" },
+                { path: "/cart/[1-9][0-9]*", processor: "demo.rest.ShopCart${PIPELINE}" }
+            ]
+        }   
+    }
+}
+

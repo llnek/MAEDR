@@ -1,0 +1,13 @@
+{ 
+    devices : { 
+        t1 : { type: "oneshot-timer", processor: "demo.atom.FeedReader${PIPELINE}${PREAMBLE}" },
+        h1 : {   
+            type:"atom", 
+            urls: [ "http://www.readwriteweb.com/rss.xml", "http://rss.slashdot.org/Slashdot/slashdot" ] ,
+            validate: false,
+            intervalsecs: 5,
+            processor: "demo.atom.FeedReader${PIPELINE}"
+        }   
+    }
+}
+

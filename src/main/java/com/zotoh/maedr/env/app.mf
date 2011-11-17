@@ -1,0 +1,13 @@
+{
+    
+    "devices" : {
+    
+        "test" : {
+            "type" : "oneshot-timer",
+            "processor" : "${PROCESSOR}",
+            "delaysecs" : 0
+        }
+    
+    }
+    
+}

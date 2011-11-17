@@ -1,0 +1,18 @@
+{ 
+    devices : { 
+
+        t1 : { type: "oneshot-timer", processor: "demo.tcpip.SockServer${PIPELINE}${PREAMBLE}" },
+
+        server : {  
+            processor: "demo.tcpip.SockServer${PIPELINE}",
+            type:"tcp", port:9090  
+        }, 
+        
+        trigger: { 
+            processor: "demo.tcpip.SockClient${PIPELINE}",
+            type:"oneshot-timer", delaysecs: 1 
+        }   
+   }
+}
+
+

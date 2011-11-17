@@ -1,0 +1,68 @@
+{
+    "credential": {
+        "account": "???",
+        "id": "???",
+        "provider": "amazon",
+        "pwd": "???"
+    },
+    "custom": {"amazon": {
+        "aws.endpoint.ap-northeast-1": "ec2.ap-northeast-1.amazonaws.com",
+        "aws.endpoint.ap-southeast-1": "ec2.ap-southeast-1.amazonaws.com",
+        "aws.endpoint.eu-west-1": "ec2.eu-west-1.amazonaws.com",
+        "aws.endpoint.us-east-1": "ec2.us-east-1.amazonaws.com",
+        "aws.endpoint.us-west-2": "ec2.us-west-2.amazonaws.com",
+        "aws.endpoint.us-west-1": "ec2.us-west-1.amazonaws.com"
+    }},
+    "defaults": {
+        "firewall": "",
+        "image": "ami-8e1fece7",
+        "key": "",
+        "product": {
+            "I32": "t1.micro",
+            "I64": "t1.micro"
+        },
+        "region": "us-east-1",
+        "vm": "",
+        "zone": ""
+    },
+    "eips": {},
+    "firewalls": {},
+    "images": {"ami-8e1fece7": {
+        "arch": "I64",
+        "platform": "linux"
+    }},
+    "regions": {
+        "ap-northeast-1": {
+            "ap-northeast-1a": {},
+            "ap-northeast-1b": {}
+        },
+        "ap-southeast-1": {
+            "ap-southeast-1a": {},
+            "ap-southeast-1b": {}
+        },
+        "eu-west-1": {
+            "eu-west-1a": {},
+            "eu-west-1b": {},
+            "eu-west-1c": {}
+        },
+        "us-east-1": {
+            "us-east-1a": {},
+            "us-east-1b": {},
+            "us-east-1c": {},
+            "us-east-1d": {}
+        },
+        "us-west-1": {
+            "us-west-1a": {},
+            "us-west-1b": {},
+            "us-west-1c": {}
+        }
+    },
+    "sshinfo": {
+        "user": "ec2-user",
+        "pwd": ""
+    },
+    "sshkeys": {
+    },
+    "vms": {}
+    
+}

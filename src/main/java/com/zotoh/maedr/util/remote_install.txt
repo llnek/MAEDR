@@ -1,0 +1,54 @@
+#!/bin/sh
+VERSION=${MAEDR_VERSION}
+TDIR=${TARGET_DIR}
+WMI=`whoami`
+PKGFILE=maedr-$VERSION.tar.gz
+REMOTE=http://maedr.zotoh.com/packages/stable/$VERSION/$PKGFILE
+PDIR=$TDIR/maedr-$VERSION
+WGET="wget -q $REMOTE"
+
+#echo "I am $WMI"
+
+if [ ! -d $TDIR  ]; then
+    echo "not a directory - $TDIR"
+    exit
+fi
+
+if [ ! -w $TDIR  ]; then
+    echo "not writable - $TDIR"
+    exit
+fi
+
+if [ -e $PDIR ]; then
+    echo "$PDIR already exists"
+    exit
+fi
+
+echo "Making directory $PDIR"
+mkdir $PDIR
+cd $PDIR
+
+echo $WGET
+$WGET
+echo "wget completed"
+
+if [ ! -e $PKGFILE ]; then
+    echo "failed to download package $PKGFILE"
+    exit
+fi
+
+tar xvfz $PKGFILE > /dev/null
+rm -f  $PKGFILE > /dev/null
+
+if [ ! -e bin/maedr ]; then
+    echo "failed to untar package or package is corrupt"
+    exit
+fi
+
+if [ ! -x bin/maedr ]; then
+    chmod 755 bin/maedr
+fi
+
+
+echo "Installed OK."
+

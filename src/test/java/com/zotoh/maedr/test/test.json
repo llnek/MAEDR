@@ -1,0 +1,51 @@
+{
+    "devices" : {
+        "fp" : {
+            "type" : "file-picker",
+            "rootdir" : "/tmp",
+            "subdirs" : "a|b",
+            "mask" : "*.json",
+            "delaysecs" : 5,
+            "everysecs" : 5,
+            "status" : false
+        },
+        "timer" : {
+            "type" : "repeat-timer",
+            "delaysecs" : 5,
+            "everysecs" : 5,
+            "status" : false
+        },
+        "simple" : {
+            "type" : "http",
+            "host" : "localhost",
+            "port" : 5691,
+            "async" : false,
+            "status" : true
+        },
+        "ssl" : {
+            "type" : "ssl",
+            "host" : "localhost",
+            "port" : 5692,
+            "nio" : true,
+            "serverkeypwd" : "Password1",
+            "serverkey" : "/tmp/test.p12",
+            "status" : false
+        },
+        "pop" : {
+            "type" : "pop3",
+            "delaysecs" : 5,
+            "everysecs" : 5,
+            "host" : "localhost",
+            "port" : 110,
+            "user" : "test",
+            "pwd" : "secret",
+            "ssl" : false,
+            "status" : false
+        }
+    },
+
+    "cores" : {
+            "c1" : { "threads" : 2 }
+    }
+}
+

@@ -1,0 +1,16 @@
+{ 
+    devices : { 
+        t0 : { type: "oneshot-timer", processor: "demo.websock.WebSockServer${PIPELINE}${PREAMBLE}" },
+
+        t1 : {  
+                processor: "demo.websock.WebSockClient${PIPELINE}", 
+                type:"oneshot-timer", 
+                delaysecs:5 },
+        h1 : {  
+                processor: "demo.websock.WebSockServer${PIPELINE}", 
+                type:"websocket", 
+                host:"localhost", 
+                port:8080, uri: "/squarenum" }   
+    }
+}
+
