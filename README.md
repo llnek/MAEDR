@@ -41,7 +41,7 @@ HTTPService.create(8080).handler(
 // callback
     {   evt, args ->
         def res=args[0];
-        res.setData(<html><body><h1>Bonjour!</h1></body></html>);
+        res.setData(&lt;html&gt; &lt;body&gt; &lt;h1&gt;Bonjour!&lt;/h1&gt; &lt;/body&gt; &lt;/html&gt;);
         evt.setResult(res);
     } as HTTPHandler
 ).start();
