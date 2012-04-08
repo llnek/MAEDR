@@ -128,6 +128,13 @@ cloud fwall/- <group@rule>         ' Remove a Firewall rule.
 # Lots more to read
 Goto [http://maedr.zotoh.com/](http://maedr.zotoh.com)
 
+
+
+# Contact
+For questions and bug reports, please email [contactzotoh@gmail.com](mailto:contactzotoh@gmail.com)
+
+
+
 # Latest binary
 Download the latest bundle [1.0.0](http://maedr.zotoh.com/packages/stable/1.0.0/maedr-1.0.0.tar.gz)
 
